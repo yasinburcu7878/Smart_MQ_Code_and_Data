@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software or dataset, please cite the paper below."
+title: "SmartMQ — Reproducibility Package"
+authors:
+  - family-names: "Kay"
+    given-names: "Ecem İlayda"
+  - family-names: "Ünal"
+    given-names: "Yasin"
+  - family-names: "Rodoplu"
+    given-names: "Volkan"
+license: MIT
+repository-code: "https://github.com/yasinburcu7878/Smart_MQ_Code_and_Data"
+preferred-citation:
+  type: article
+  title: "SmartMQ: Utility-Driven Semantic-Difference-Based Transmission Filtering for MQTT-Based IoT Systems"
+  authors:
+    - family-names: "Kay"
+      given-names: "Ecem İlayda"
+    - family-names: "Ünal"
+      given-names: "Yasin"
+    - family-names: "Rodoplu"
+      given-names: "Volkan"
+  year: 2026

@@ -1,0 +1,19 @@
+====================================================================
+SmartMQ significance — Mann-Whitney U on decision-independent z_t
+====================================================================
+
+--- Simulation (within-run, descriptive; see run-level below) ---
+  Flat           p=9.8e-16  r=0.421 (medium)
+  Step           p=2.7e-16  r=0.424 (medium)
+  Periodic       p=3.1e-19  r=0.415 (medium)
+  Drift          p=1.3e-07  r=0.377 (medium)
+
+--- Run-level (PRIMARY): 20 independent seeds per scenario ---
+  flat       mean Z=1.92  min=1.72  Z>1 in 20/20 runs  Wilcoxon p=9.5e-07
+  step       mean Z=1.90  min=1.73  Z>1 in 20/20 runs  Wilcoxon p=9.5e-07
+  periodic   mean Z=1.86  min=1.56  Z>1 in 20/20 runs  Wilcoxon p=9.5e-07
+  drift      mean Z=2.16  min=1.78  Z>1 in 20/20 runs  Wilcoxon p=9.5e-07
+
+--- Hardware (descriptive, single deployment trace) ---
+  Temperature    p=1.5e-11  r=0.212 (small)
+  Humidity       p=9.4e-26  r=0.302 (small)

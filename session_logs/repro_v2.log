@@ -1,0 +1,68 @@
+==========================================================================
+SmartMQ — reproduction of reported numbers (got vs paper)
+==========================================================================
+
+[1] Base publish rates (%)
+  flat/step/periodic/drift   got: 13.8 14.2 18.8 14.6            paper: 13.8 14.2 18.8 14.6
+
+[2] Embedding ablation (publish %)
+  full                       got: 13.8 14.2 18.8 14.6            paper: 13.8 14.2 18.8 14.6
+  w/o trend                  got: 8.5 8.5 9.8 10.0               paper: 8.5 8.5 9.8 10.0
+  w/o autocorr               got: 11.6 11.0 15.5 10.4            paper: 11.6 11.0 15.5 10.4
+  w/o variance               got: 19.2 19.4 25.2 21.2            paper: 19.2 19.4 25.2 21.2
+  w/o trend+autocorr         got: 5.8 6.1 6.5 5.4                paper: 5.8 6.1 6.5 5.4
+  w/o autocorr+variance      got: 15.5 15.3 21.3 15.4            paper: 15.5 15.3 21.3 15.4
+
+[3] Utility ablation (publish %)
+  full                       got: 13.8 14.2 18.8 14.6            paper: 13.8 14.2 18.8 14.6
+  w_s=0                      got: 4.4 4.5 5.5 4.8                paper: 4.4 4.5 5.5 4.8
+  w_e=0                      got: 5.5 5.6 6.4 5.4                paper: 5.5 5.6 6.4 5.4
+  w_d=0                      got: 18.4 18.0 23.0 20.8            paper: 18.4 18.0 23.0 20.8
+  w_m=0                      got: 18.3 18.3 22.7 18.0            paper: 18.3 18.3 22.7 18.0
+  w_t=0                      got: 4.5 4.3 5.6 4.8                paper: 4.5 4.3 5.6 4.8
+  w_r=0                      got: 7.6 7.8 11.8 8.2               paper: 7.6 7.8 11.8 8.2
+  w_a=0                      got: 7.8 7.8 16.5 6.6               paper: 7.8 7.8 16.5 6.6
+
+[3b] Decision-independent selectivity Z under the w_r ablation
+  full model (same runs)     got: 2.01 2.12 1.95 2.24            paper: 2.01 2.12 1.95 2.24
+  w_r=0                      got: 1.82 1.85 2.03 2.43            paper: 1.82 1.85 2.03 2.43  (paper: 1.82-2.43, Sec. 8.3)
+
+[4] Hardware (real SHT30, data/sht30_temperature_humidity.csv)
+  samples = 2636  (paper: 2636)
+  temperature pub% / Z       got: 14.5 / 2.36                    paper: 14.5 / 2.36
+  humidity pub% / Z          got: 18.4 / 2.67                    paper: 18.4 / 2.67
+
+[5] Within-run Mann-Whitney U on z_t (descriptive support; primary: [5b])
+    (z_t values are serially dependent; no pooled p-value is reported,
+     consistent with Sec. 8.7 of the paper)
+  flat      p=  9.8e-16  rank-biserial=0.421 (medium)
+  step      p=  2.7e-16  rank-biserial=0.424 (medium)
+  periodic  p=  3.1e-19  rank-biserial=0.415 (medium)
+  drift     p=  1.3e-07  rank-biserial=0.377 (medium)
+  hw-temp   p=  1.5e-11  rank-biserial=0.212 (small)
+  hw-humid  p=  9.4e-26  rank-biserial=0.302 (small)
+
+[5b] Run-level selectivity Z: 20 independent seeds per scenario
+  flat      mean=1.92  min=1.72  Z>1 in 20/20 runs  Wilcoxon p=9.5e-07
+  step      mean=1.90  min=1.73  Z>1 in 20/20 runs  Wilcoxon p=9.5e-07
+  periodic  mean=1.86  min=1.56  Z>1 in 20/20 runs  Wilcoxon p=9.5e-07
+  drift     mean=2.16  min=1.78  Z>1 in 20/20 runs  Wilcoxon p=9.5e-07
+
+[6] Age of Information (N_age = 30)
+  flat      peak= 26  violations=0
+  step      peak= 28  violations=0
+  periodic  peak= 21  violations=0
+  drift     peak= 26  violations=0
+  overall peak AoI           got: 28                             paper: 28 (zero violations; guaranteed by freshness cap)
+
+[7] Drift sub-interval publish rates (20-seed mean)
+  early / mid / late         got: 18.5 / 15.6 / 13.3             paper: 18.5 / 15.6 / 13.3 (monotonic decline)
+
+[8] Sensitivity extremes: Z/baseline over the +/-50% sweep (Fig. 5)
+  min ratio                  got: 0.61  (U_LOW drift x0.75)      paper: 0.61
+  max ratio                  got: 1.54  (W_T drift x0.5)         paper: 1.54
+  theta_H +50%: flat/step    got: 0.98 / 0.90                    paper: 0.98 / 0.90
+
+==========================================================================
+Done. All values above are computed from the model code in this run.
+==========================================================================

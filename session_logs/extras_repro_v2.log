@@ -1,0 +1,61 @@
+============================================================================
+SmartMQ — reproduction of the remaining reported numbers (got vs paper)
+============================================================================
+
+[E1] MAE overhead at matched publish rate (seed 42), x1e-2 degC
+  flat (vs SOD / vs MSOD)      got: +2.9 / +2.3                        paper: +2.9 / +2.3
+  step (vs SOD / vs MSOD)      got: +3.4 / +3.4                        paper: +3.4 / +3.4
+  periodic (vs SOD / vs MSOD)  got: +4.9 / +4.9                        paper: +4.9 / +4.9
+  drift (vs SOD / vs MSOD)     got: +0.5 / -0.1                        paper: +0.5 / -0.1
+
+[E2] Freshness-cap activations (forced publish: age>=30 with U<theta_H)
+  20-seed totals f/s/p/d       got: 3 2 0 0                            paper: 3 2 0 0
+  total / samples              got: 5 / 70000 = 0.007%                 paper: 5 / 70000 = 0.007%
+  default seed 42 (all scn)    got: 0 0 0 0                            paper: 0 0 0 0
+  hw temperature cap/peakAoI/kappa got: 0 / 28 / 0.0105                    paper: 0 / 28 / ~0.010
+  hw humidity cap/peakAoI/kappa got: 0 / 24 / 0.0524                    paper: 0 / 24 / ~0.052
+
+[E3] Event-detection delay on STEP (onset t=120), matched rate, 20 seeds
+  SmartMQ                      got: mean 0.80  max 9  misses 0         paper: mean 0.80  max 9  misses 0
+  SOD                          got: mean 0.00  max 0  misses 0         paper: mean 0.00  max 0  misses 0
+  MSOD                         got: mean 0.00  max 0  misses 0         paper: mean 0.00  max 0  misses 0
+  VBT                          got: mean 0.05  max 1  misses 0         paper: mean 0.05  max 1  misses 0
+  Zhang23                      got: mean 0.00  max 0  misses 0         paper: mean 0.00  max 0  misses 0
+
+[E4] Zhang23 at DEFAULT operating point: AoI (seed 42)
+  flat pub/mean/peak/viol      got: 2.3% / 41.8 / 148 / 52.2%          paper: 2.3% / 41.8 / 148 / 52.2%
+  step pub/mean/peak/viol      got: 2.7% / 40.5 / 148 / 50.4%          paper: 2.7% / 40.5 / 148 / 50.4%
+  periodic pub/mean/peak/viol  got: 9.0% / 9.3 / 40 / 2.8%             paper: 9.0% / 9.3 / 40 / 2.8%
+  drift pub/mean/peak/viol     got: 2.0% / 29.4 / 82 / 45.8%           paper: 2.0% / 29.4 / 82 / 45.8%
+
+[E5] Invariance on the real temperature trace (Table 4)
+  x+100                        got: 100.00% decision agreement         paper: 100.00%
+  1.8x+32                      got: 100.00% decision agreement         paper: 100.00%
+  10x                          got: 100.00% decision agreement         paper: 100.00%
+  0.1x                         got: 100.00% decision agreement         paper: 100.00%
+  0.01x+5                      got: 100.00% decision agreement         paper: 100.00%
+
+[E6] Dimensionless-constant robustness: C_TR, C_VAR x{0.5,0.75,1.25,1.5}
+  min ratio                    got: 0.84  (C_TR x0.75, drift)          paper: 0.84 (C_TR x0.75, drift)
+  max ratio                    got: 1.17  (C_VAR x0.5, drift)          paper: 1.17 (C_VAR x0.5, drift)
+
+[E7] Noise-scale window L in {50,100,200}: 20-run mean selectivity Z
+  mean Z at L=100 (f/s/p/d)    got: 1.92 1.90 1.86 2.16                paper: 1.92 1.90 1.86 2.16
+  max |dZ|, fixed ruler        got: 0.042                              paper: < 0.05
+  max |dZ|, co-varied norm.    got: 0.034                              paper: < 0.05
+
+[E8] Hardware moving-block bootstrap 95% CI for Z (block=50, 2000 reps)
+     (CI bounds depend on the resampling RNG stream; point estimates
+      are deterministic. Paper: temp [1.80, 2.70], humid [1.87, 2.86])
+  temperature                  got: 2.36  [1.78, 2.68]                 paper: 2.36  [1.80, 2.70]
+  humidity                     got: 2.67  [1.85, 2.86]                 paper: 2.67  [1.87, 2.86]
+
+[E9] Paired per-run selectivity vs matched Zhang23 (20 seeds per scenario)
+  flat                         got: 19/20 runs, p=4.8e-06              paper: 19/20, p <= 1.3e-4
+  step                         got: 19/20 runs, p=1.3e-05              paper: 19/20, p <= 1.3e-4
+  periodic                     got: 15/20 runs, p=1.3e-04              paper: 15/20, p <= 1.3e-4
+  drift                        got: 19/20 runs, p=2.9e-06              paper: 19/20, p <= 1.3e-4
+
+============================================================================
+Done. All values above are computed from the model code in this run.
+============================================================================

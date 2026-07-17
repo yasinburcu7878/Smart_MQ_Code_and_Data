@@ -1,0 +1,6 @@
+# Pinned: the reported results are byte-reproducible with these versions.
+numpy==2.4.4
+scipy==1.17.1
+# Used for CSV loading and plotting only; not result-determining.
+pandas>=2.0
+matplotlib>=3.7

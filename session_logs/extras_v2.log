@@ -1,0 +1,18 @@
+MAE overhead at matched rate (seed 42), x1e-2 degC  [old paper: vsSOD 3.6/3.2/4.8/1.5, vsMSOD 3.2/2.7/4.8/1.0]
+  flat      SmartMQ MAE 0.1779  ovh vs SOD +2.9  vs MSOD +2.3
+  step      SmartMQ MAE 0.1823  ovh vs SOD +3.4  vs MSOD +3.4
+  periodic  SmartMQ MAE 0.1927  ovh vs SOD +4.9  vs MSOD +4.9
+  drift     SmartMQ MAE 0.1709  ovh vs SOD +0.5  vs MSOD +-0.1
+
+Cap (freshness rule) activations: publishes forced at age>=30 with U<theta_H
+  flat      forced publishes across 20 seeds: 3
+  step      forced publishes across 20 seeds: 2
+  periodic  forced publishes across 20 seeds: 0
+  drift     forced publishes across 20 seeds: 0
+  TOTAL 5 / 70000 samples = 0.007%
+  seed42 flat: 0 activations
+  seed42 step: 0 activations
+  seed42 periodic: 0 activations
+  seed42 drift: 0 activations
+  hw temperature: 0 activations, kappa median 0.0105
+  hw humidity: 0 activations, kappa median 0.0524

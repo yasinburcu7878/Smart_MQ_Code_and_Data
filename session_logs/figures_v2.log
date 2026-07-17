@@ -1,0 +1,24 @@
+Pre-computing base results...
+  flat: pub=13.8%  selectivity=1.990x
+  step: pub=14.2%  selectivity=2.050x
+  periodic: pub=18.8%  selectivity=1.968x
+  drift: pub=14.6%  selectivity=2.098x
+
+[1/6] figure_3 — Baseline comparison
+  flat: D_indep SmartMQ=1.92 SOD=1.56 MSOD=1.55 VBT=1.10 Zhang23=1.66
+  step: D_indep SmartMQ=1.90 SOD=1.56 MSOD=1.56 VBT=1.07 Zhang23=1.65
+  periodic: D_indep SmartMQ=1.86 SOD=1.65 MSOD=1.65 VBT=1.05 Zhang23=1.71
+  drift: D_indep SmartMQ=2.16 SOD=1.66 MSOD=1.66 VBT=1.17 Zhang23=1.77
+  ✅ figure_3.pdf + .png
+[2/6] figure_5 — Sensitivity
+  ✅ figure_5.pdf + .png
+[3/6] figure_7 — AoI
+  ✅ figure_7.pdf + .png
+[4/6] figure_4 — Composite signal
+  ✅ figure_4.pdf + .png
+[5/6] figure_8 — Hardware
+  ✅ figure_8.pdf + .png
+[6/6] figure_6 — Window sensitivity (main text, Fig. 6)
+  ✅ figure_6.pdf + .png
+
+✅ All 6 figures saved to: /home/claude/SmartMQ_Code/figures/output
