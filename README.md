@@ -2,7 +2,7 @@
 
 Reference implementation, hardware dataset, and reproduction scripts for the paper:
 
-> **SmartMQ: Utility-Driven Semantic-Difference-Based Transmission Filtering for MQTT-Based IoT Systems**
+> **SmartMQ: Utility-Driven Semantic-Difference-Based Transmission Filtering for Message Queuing Telemetry Transport-Based Internet of Things Systems**
 > Ecem İlayda Kay, Yasin Ünal, Volkan Rodoplu
 
 Every number reported in the paper is recomputed by the scripts in `reproduce/`,
@@ -153,7 +153,7 @@ upon publication) and the archived release:
 
 ```
 Kay, E. İ., Ünal, Y., & Rodoplu, V. SmartMQ: Utility-Driven
-Semantic-Difference-Based Transmission Filtering for MQTT-Based IoT Systems.
+Semantic-Difference-Based Transmission Filtering for Message Queuing Telemetry Transport-Based Internet of Things Systems.
 ```
 
 Archived release: [Zenodo DOI — to be added]

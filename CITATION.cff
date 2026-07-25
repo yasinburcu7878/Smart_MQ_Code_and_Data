@@ -12,7 +12,7 @@ license: MIT
 repository-code: "https://github.com/yasinburcu7878/Smart_MQ_Code_and_Data"
 preferred-citation:
   type: article
-  title: "SmartMQ: Utility-Driven Semantic-Difference-Based Transmission Filtering for MQTT-Based IoT Systems"
+  title: "SmartMQ: Utility-Driven Semantic-Difference-Based Transmission Filtering for Message Queuing Telemetry Transport-Based Internet of Things Systems"
   authors:
     - family-names: "Kay"
       given-names: "Ecem İlayda"

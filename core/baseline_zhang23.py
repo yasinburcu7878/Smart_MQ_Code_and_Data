@@ -98,9 +98,9 @@ def reconstruct_zhang23(signal, dec, trend_alpha=0.6):
 
     On PUBLISH the true value is received; on SUPPRESS the receiver
     extrapolates with the last known smoothed trend d_k instead of a
-    flat hold. This is [17]'s native reconstruction and is strictly
-    more favorable to the baseline than zero-order-hold -- using it
-    avoids any accusation of handicapping the baseline on MAE.
+    flat hold. This is [17]'s native reconstruction; it is provided so
+    that the baseline can also be evaluated under its own reconstruction
+    rule, not only under zero-order hold.
     """
     recon = []
     last_val = signal[0]; d_k = 0.0; prev_z = signal[0]
@@ -120,13 +120,20 @@ def reconstruct_zhang23(signal, dec, trend_alpha=0.6):
 
 
 def mae_zhang23(signal, dec, mode="zoh"):
-    """MAE for Zhang23. mode='zoh' (default) = zero-order hold, the clean
-    apples-to-apples decision-rule comparison (same as SOD/MSOD use).
-    mode='native' uses trend extrapolation, but NOTE: faithful Alg.3
-    applies the trend ONLY inside detected-drift intervals; the simple
-    unconditional version here over-extrapolates on long flat runs and
-    must be drift-gated before it is fair to the baseline. Prefer 'zoh'
-    until that gating is added."""
+    """MAE for Zhang23 under a chosen receiver-side reconstruction.
+
+    This function is not used for any number reported in the paper: the
+    reconstruction-fidelity comparison there (Fig. 3b) is made against
+    SOD and MSOD under zero-order hold and is computed by mae_zoh().
+
+    mode='zoh' (default): zero-order hold, the like-for-like setting
+        also applied to SOD and MSOD.
+    mode='native': trend extrapolation via reconstruct_zhang23(). Note
+        that faithful Alg. 3 applies the trend only inside intervals
+        where drift has been detected, whereas this unconditional
+        variant also extrapolates across long flat runs; 'zoh' is
+        therefore the default until drift gating is implemented.
+    """
     if mode == "zoh":
         last = signal[0]; s = 0.0
         for i, d in enumerate(dec):

@@ -398,4 +398,4 @@ for idx,(pname,plabel,wvals) in enumerate(WPARAMS):
 fig.legend(_sc_handles[0][:4],_sc_handles[1][:4],loc='lower center',ncol=4,bbox_to_anchor=(0.5,1.0),fontsize=20,framealpha=0.9)
 save(fig,'figure_6')
 
-print(f"\n✅ All 6 figures saved to: {OUT}")
+print(f"\n✅ All 6 figures saved to: figures/output")
