@@ -156,4 +156,4 @@ Kay, E. İ., Ünal, Y., & Rodoplu, V. SmartMQ: Utility-Driven
 Semantic-Difference-Based Transmission Filtering for Message Queuing Telemetry Transport-Based Internet of Things Systems.
 ```
 
-Archived release: [Zenodo DOI — to be added]
+Archived release (all versions, always resolves to the latest): https://doi.org/10.5281/zenodo.21414411

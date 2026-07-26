@@ -9,6 +9,7 @@ authors:
   - family-names: "Rodoplu"
     given-names: "Volkan"
 license: MIT
+doi: 10.5281/zenodo.21414411
 repository-code: "https://github.com/yasinburcu7878/Smart_MQ_Code_and_Data"
 preferred-citation:
   type: article
