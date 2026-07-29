@@ -1,0 +1,28 @@
+======================================================================
+[B1] Z vs burn-in length B  (SmartMQ, mean over 20 seeds)
+======================================================================
+scenario    B=0     B=20    B=40    B=60    B=100 
+flat        1.919   1.604   1.607   1.612   1.621
+step        1.897   1.584   1.587   1.591   1.599
+periodic    1.861   1.482   1.489   1.493   1.496
+drift       2.155   1.542   1.554   1.553   1.528
+
+======================================================================
+[B2] SmartMQ vs matched Zhang23  (mean over 20 seeds)
+======================================================================
+scenario   SmartMQ B=0  Zhang23 B=0   SmartMQ B=40  Zhang23 B=40   wins B=0  wins B=40
+flat             1.919        1.655          1.607         1.501        19/20      16/20
+step             1.897        1.646          1.587         1.492        19/20      15/20
+periodic         1.861        1.708          1.489         1.575        15/20       5/20
+drift            2.155        1.775          1.554         1.462        19/20      16/20
+
+======================================================================
+[B3] Hardware traces (SHT30)
+======================================================================
+trace         n     B=0     B=40    B=100   paper 95% CI (B=0)
+temperature   2636   2.357   2.150   2.162   [1.80, 2.70]
+humidity      2636   2.667   2.187   2.063   [1.87, 2.86]
+
+Interpretation: Z decreases for every method once the warm-up window is excluded,
+and stabilizes beyond B = 40; the hardware point estimates remain inside the
+bootstrap intervals reported in Sec. 8.7.

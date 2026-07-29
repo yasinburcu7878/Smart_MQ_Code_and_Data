@@ -1,0 +1,12 @@
+==========================================================================
+[F1] Selectivity Z at matched publish rate, mean over 20 seeds
+==========================================================================
+scenario      SmartMQ   Zhang23 (article)   Zhang23 (synchronized)
+flat            1.919               1.655                    1.581
+step            1.897               1.646                    1.578
+periodic        1.861               1.708                    1.601
+drift           2.155               1.775                    1.676
+
+The synchronized variant is less selective in every scenario;
+the implementation used in the article therefore does not
+understate the baseline.

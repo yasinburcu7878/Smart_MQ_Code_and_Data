@@ -24,6 +24,8 @@ under them: running the scripts in a clean environment reproduces
 ```bash
 python3 reproduce/reproduce_results.py     # all SmartMQ numbers, got vs paper
 python3 reproduce/reproduce_extras.py      # remaining numbers incl. Table 4, got vs paper
+python3 reproduce/burnin_sensitivity.py    # warm-up sensitivity of Z (Sec. 8.7 note)
+python3 reproduce/baseline_fidelity.py     # Zhang23 fidelity check (Sec. 7.4)
 python3 figures/generate_figures.py        # six figures + cross-method table
 python3 experiments/statistical_tests.py   # significance (decision-independent)
 ```
@@ -47,6 +49,13 @@ figures/
   output/                      figure_3..figure_8 (.pdf vector + .png)
 reproduce/
   reproduce_results.py         Recomputes every reported SmartMQ number
+  burnin_sensitivity.py        Warm-up (burn-in) sensitivity of the
+                               decision-independent selectivity Z, 20 seeds
+                               per scenario plus the hardware traces
+                               (robustness note, Sec. 8.7)
+  baseline_fidelity.py         Zhang23 reduction path against the
+                               synchronized-predictor variant of the
+                               original formulation (Sec. 7.4)
   reproduce_extras.py          Matched-rate MAE overhead, freshness-cap counts,
                                event-detection delay, Zhang23 default AoI,
                                invariance (Table 4), C_TR/C_VAR and L sweeps,
