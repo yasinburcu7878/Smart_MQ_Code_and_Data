@@ -24,13 +24,13 @@ under them: running the scripts in a clean environment reproduces
 ```bash
 python3 reproduce/reproduce_results.py     # all SmartMQ numbers, got vs paper
 python3 reproduce/reproduce_extras.py      # remaining numbers incl. Table 4, got vs paper
-python3 reproduce/burnin_sensitivity.py    # warm-up sensitivity of Z (Sec. 8.7 note)
+python3 reproduce/burnin_sensitivity.py    # warm-up sensitivity of Z (supplementary)  
 python3 reproduce/baseline_fidelity.py     # Zhang23 fidelity check (Sec. 7.4)
 python3 figures/generate_figures.py        # six figures + cross-method table
 python3 experiments/statistical_tests.py   # significance (decision-independent)
 ```
 
-Reference outputs of all four scripts are stored in `session_logs/`.
+Reference outputs of all six scripts are stored in `session_logs/`.
 
 ## Structure
 
@@ -52,7 +52,7 @@ reproduce/
   burnin_sensitivity.py        Warm-up (burn-in) sensitivity of the
                                decision-independent selectivity Z, 20 seeds
                                per scenario plus the hardware traces
-                               (robustness note, Sec. 8.7)
+                               (supplementary robustness analysis)
   baseline_fidelity.py         Zhang23 reduction path against the
                                synchronized-predictor variant of the
                                original formulation (Sec. 7.4)
@@ -123,10 +123,14 @@ The SmartMQ lead is genuine but modest; selectivity evidences that the
 embedding front-end is semantically grounded, and is not the primary
 differentiator — the contribution is the integrated, utility-driven decision.
 
-**Note on `mae_zhang23()`.** The default mode is zero-order hold
-(apples-to-apples with SOD/MSOD). The native trend reconstruction
-(`mode="native"`) must be drift-gated before it is fair to the baseline
-(see the code comment).
+**Note on `mae_zhang23()`.** This function is not used for any number
+reported in the paper: the reconstruction-fidelity comparison there is made
+against SOD and MSOD under zero-order hold. Its default mode is therefore
+zero-order hold, the like-for-like setting also applied to SOD and MSOD. The
+native trend reconstruction (`mode="native"`) is provided for completeness;
+faithful Alg. 3 applies the trend only inside intervals where drift has been
+detected, whereas this unconditional variant also extrapolates across long
+flat runs.
 
 ## Hardware data
 
@@ -144,7 +148,7 @@ discrete-time sequence, with AoI defined in the sample-index domain.
 
 ## Determinism
 
-Point estimates are deterministic: with the pinned versions above, all four
+Point estimates are deterministic: with the pinned versions above, all six
 scripts reproduce `session_logs/` byte for byte. The only resampling-dependent
 quantity is the hardware moving-block bootstrap in `reproduce_extras.py` [E8];
 its confidence-interval bounds depend on the resampling RNG stream and may
