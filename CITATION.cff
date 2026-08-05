@@ -2,12 +2,15 @@ cff-version: 1.2.0
 message: "If you use this software or dataset, please cite the paper below."
 title: "SmartMQ — Reproducibility Package"
 authors:
-  - family-names: "Kay"
-    given-names: "Ecem İlayda"
   - family-names: "Ünal"
     given-names: "Yasin"
+    orcid: "https://orcid.org/0009-0008-4480-2394"
+  - family-names: "Kay"
+    given-names: "Ecem İlayda"
+    orcid: "https://orcid.org/0009-0000-3780-1221"
   - family-names: "Rodoplu"
     given-names: "Volkan"
+    orcid: "https://orcid.org/0000-0002-9055-4159"
 license: MIT
 doi: 10.5281/zenodo.21414411
 repository-code: "https://github.com/yasinburcu7878/Smart_MQ_Code_and_Data"
@@ -15,10 +18,13 @@ preferred-citation:
   type: article
   title: "SmartMQ: Utility-Driven Semantic-Difference-Based Transmission Filtering for Message Queuing Telemetry Transport-Based Internet of Things Systems"
   authors:
-    - family-names: "Kay"
-      given-names: "Ecem İlayda"
     - family-names: "Ünal"
       given-names: "Yasin"
+      orcid: "https://orcid.org/0009-0008-4480-2394"
+    - family-names: "Kay"
+      given-names: "Ecem İlayda"
+      orcid: "https://orcid.org/0009-0000-3780-1221"
     - family-names: "Rodoplu"
       given-names: "Volkan"
+      orcid: "https://orcid.org/0000-0002-9055-4159"
   year: 2026
