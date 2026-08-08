@@ -1,0 +1,12 @@
+========================================================================
+[H1/H2] Hysteresis band ablation, default configuration
+        band disabled by setting theta_L = theta_H = 0.32
+========================================================================
+scenario    publish %   publish % (no band)  transitions  transitions (no band)
+flat             13.8                  16.1          111                    291
+step             14.2                  15.8          113                    285
+periodic         18.8                  15.1          145                    277
+drift            14.6                  17.2           59                    151
+
+paper: publish rates without the band are 16.1, 15.8, 15.1, 17.2
+paper: transitions 111, 113, 145, 59 against 291, 285, 277, 151

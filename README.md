@@ -33,6 +33,7 @@ python3 reproduce/reproduce_results.py     # all SmartMQ numbers, got vs paper
 python3 reproduce/reproduce_extras.py      # remaining numbers incl. Table 4, got vs paper
 python3 reproduce/burnin_sensitivity.py    # warm-up sensitivity of Z (supplementary)  
 python3 reproduce/baseline_fidelity.py     # Zhang23 fidelity check (Sec. 7.4)
+python3 reproduce/hysteresis_ablation.py   # hysteresis band ablation (Sec. 8.3)
 python3 figures/generate_figures.py        # six figures + cross-method table
 python3 experiments/statistical_tests.py   # significance (decision-independent)
 ```
@@ -60,6 +61,9 @@ reproduce/
                                decision-independent selectivity Z, 20 seeds
                                per scenario plus the hardware traces
                                (supplementary robustness analysis)
+  hysteresis_ablation.py       Publish rate and publish/suppress transitions
+                               with the hysteresis band collapsed to a single
+                               threshold (Sec. 8.3)
   baseline_fidelity.py         Zhang23 reduction path against the
                                synchronized-predictor variant of the
                                original formulation (Sec. 7.4)
