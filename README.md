@@ -2,6 +2,11 @@
 
 Reference implementation, hardware dataset, and reproduction scripts for the paper:
 
+# Affiliation
+
+Department of Electrical and Electronics Engineering, Yaşar University, Üniversite
+Caddesi 37–39, Bornova, Izmir, 35100, Turkey
+
 > **SmartMQ: Utility-Driven Semantic-Difference-Based Transmission Filtering for Message Queuing Telemetry Transport-Based Internet of Things Systems**
 > Ecem İlayda Kay, Yasin Ünal, Volkan Rodoplu
 
